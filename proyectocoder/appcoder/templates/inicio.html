@@ -1,0 +1,19 @@
+{% extends "appcoder/padre.html" %}
+{% load static %}
+{% block %}
+    <h1>Este es el título del Inicio que cambio</h1>
+    <h3>Podes buscar un precioArg:</h3>
+    <form action="/appcoder/buscar/" method="GET">
+        <input type="number" name="precioArg" id="precioArg">
+        <input type="submit" value="Buscar">
+    </form>
+    {% if platos %}
+    <p>Estamos buscando el: {{precioArg}}</p>
+    <ul>
+	{% for platos in platos %}
+		<li> {{platos.nombre}} </li>
+		<li> {{platos.precioArg}} </li>
+	{% endfor %}
+    </ul>
+    {% endif %}
+{% endblock %}
